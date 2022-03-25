@@ -1,8 +1,14 @@
 const rps = ["rock", "paper", "scissors"]
-const play = rps[Math.floor(Math.random() *rps.length)]
 
 function computerPlay() {
-    return play;
+    computerSelection = rps[Math.floor(Math.random() * rps.length)]
+    return computerSelection;
 }
 
-console.log(computerPlay());
+function personPlay() {
+    personSelection = rps[Math.floor(Math.random() * rps.length)]
+    return personSelection;
+  }
+  
+  console.log(personPlay());
+  console.log(computerPlay());
