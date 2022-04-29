@@ -1,3 +1,7 @@
+let playerScore = 0;
+let computerScore = 0;
+const playerScore_span = document.getElementById('userScore');
+const computerScore_span = document.getElementById('computerScore');
 const computerSelection = comp();
 
 function comp() {
@@ -5,7 +9,7 @@ function comp() {
   return rps[Math.floor(Math.random() * rps.length)];
 }
 
-const playerSelection = player() ;
+const playerSelection = player();
 
 function player() { 
   const rps = ['rock', 'paper', 'scissors']
@@ -17,23 +21,31 @@ function playRound(playerSelection, computerSelection) {
    if(playerSelection === computerSelection) {
      return "Tie, Play Again"
    } else if(playerSelection === 'rock' && computerSelection === 'paper') {
-     return "You Lose! Paper beats Rock"
+        computerScore++;
+        return "You Lose! Paper beats Rock"
    } else if(playerSelection === 'rock' && computerSelection === 'scissors') {
-     return ("You Win! Rock beats Scissors")
+        playerScore++;
+        return ("You Win! Rock beats Scissors")
    } else if(playerSelection === 'paper' && computerSelection === 'rock') {
-     return ("You Win! Paper beats Rock")
+        playerScore++;
+        return ("You Win! Paper beats Rock")
    } else if(playerSelection === 'paper' && computerSelection === 'scissors') {
-     return ("You Lose! Scissors beats Paper")
+        computerScore++;
+        return ("You Lose! Scissors beats Paper")
    } else if(playerSelection === 'scissors' && computerSelection === 'rock') {
+        computerScore++;
      return ("You Lose! Rock beats Scissors")
    } else if(playerSelection === 'scissors' && computerSelection === 'paper') {
-     return ("You Win! Scissors beats Paper")
+        playerScore++;
+        return ("You Win! Scissors beats Paper")
    }
 }
 
 console.log(computerSelection)
 console.log(playerSelection)
 console.log(playRound(playerSelection, computerSelection))
+console.log(playerScore)
+console.log(computerScore)
 
 const selectionButtons = document.querySelectorAll('[data-selection]')
 
