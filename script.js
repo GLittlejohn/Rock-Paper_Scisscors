@@ -1,14 +1,15 @@
-const computerSelection = comp()
+const computerSelection = comp();
+
 function comp() {
   const rps = ['rock', 'paper', 'scissors']
-  return rps[Math.floor(Math.random() * 3)];
+  return rps[Math.floor(Math.random() * rps.length)];
 }
 
-const playerSelection = player() 
+const playerSelection = player() ;
 
-function player() {
+function player() { 
   const rps = ['rock', 'paper', 'scissors']
-  return rps[Math.floor(Math.random() * 3)];
+  return rps[Math.floor(Math.random() * rps.length)];
 }
 
   
@@ -33,3 +34,16 @@ function playRound(playerSelection, computerSelection) {
 console.log(computerSelection)
 console.log(playerSelection)
 console.log(playRound(playerSelection, computerSelection))
+
+const selectionButtons = document.querySelectorAll('[data-selection]')
+
+selectionButtons.forEach(selectionButton => {
+    selectionButton.addEventListener('click', e => {
+        const selectionName = selectionButton.dataset.selection;
+        makeSelection(selectionName)
+    })
+})
+
+function makeSelection(selection) {
+    console.log(selection)
+}
